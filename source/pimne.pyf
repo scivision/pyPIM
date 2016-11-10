@@ -1,0 +1,25 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module pimne ! in 
+    interface  ! in :pimne
+        subroutine pimsub(uthr,idn,iyr,alt,xlat,xlon,fkp,f107,first,dirdata,denp) ! in :pimne:pimsub.f
+            real intent(in) :: uthr
+            integer intent(in) :: idn
+            integer intent(in) :: iyr
+            real intent(in) :: alt
+            real intent(in) :: xlat
+            real intent(in) :: xlon
+            real intent(in) :: fkp
+            real intent(in) :: f107
+            integer intent(in) :: first
+            character*256 intent(in) :: dirdata
+            real intent(out) :: denp
+            character*256 :: dirdata1
+            common /folders/ dirdata1
+        end subroutine pimsub
+    end interface 
+end python module pimne
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/
