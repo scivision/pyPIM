@@ -18,6 +18,24 @@ python module pimne ! in
             character*256 :: dirdata1
             common /folders/ dirdata1
         end subroutine pimsub
+        subroutine pimsubl(uthr,idn,iyr,alt,nalt,xlat,nxlat,xlon,nxlon,fkp,f107,first,dirdata,denp) ! in :pimne:pimsub.f
+            real intent(in) :: uthr
+            integer intent(in) :: idn
+            integer intent(in) :: iyr
+            real dimension(nalt),intent(in) :: alt
+            integer, optional,intent(hide),depend(alt) :: nalt=shape(alt,0)
+            real dimension(nxlat),intent(in) :: xlat
+            integer, optional,intent(hide),depend(xlat) :: nxlat=shape(xlat,0)
+            real dimension(nxlon),intent(in) :: xlon
+            integer, optional,intent(hide),depend(xlon) :: nxlon=shape(xlon,0)
+            real intent(in) :: fkp
+            real intent(in) :: f107
+            integer intent(in) :: first
+            character*256 intent(in) :: dirdata
+            real dimension(nalt),intent(out),depend(nalt) :: denp
+            character*256 :: dirdata1
+            common /folders/ dirdata1
+        end subroutine pimsubl
     end interface 
 end python module pimne
 

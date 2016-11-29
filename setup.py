@@ -13,7 +13,7 @@ for src in sourceFiles:
 objects = []
 objects.append(join(sourcePath, 'libpim.a')) 
 
-ext = Extension( extra_objects=objects, f2py_options=['--quiet'], name='pimne', sources=sources)
+ext = Extension(extra_objects=objects, f2py_options=['--quiet'], name='pimne', sources=sources)
 
 cgmData = glob(join(join('data', 'cgmdb'), '*.*'))
 llfData = glob(join(join(join('data', 'llfdb'), 'unform'), '*.*'))

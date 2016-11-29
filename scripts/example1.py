@@ -2,7 +2,6 @@
 if __name__ == '__main__':
 
     from pypim.pypim import PIMSub
-    from scipy import arange
 
     def example1():
 

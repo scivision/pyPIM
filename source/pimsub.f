@@ -47,3 +47,29 @@ Cf2py  intent(out) denp
        return
 
       end
+
+
+      subroutine pimsubl(uthr,idn,iyr,alt,nalt,xlat,nxlat,xlon,nxlon,
+     & fkp,F107,first,dirdata,denp)
+
+       real uthr,fkp,F107
+       integer nalt,nxlat,nxlon
+       real alt(nalt),xlat(nxlat),xlon(nxlon),denp(nalt)
+       integer idn,iyr,first
+       character*256 dirdata,dirdata1
+
+Cf2py  intent(in) uthr,idn,iyr,alt,xlat,xlon,fkp,F107,first,dirdata
+Cf2py  integer intent(hide),depend(alt) :: nalt=shape(alt,0)
+Cf2py  integer intent(hide),depend(xlat) :: nxlat=shape(xlat,0)
+Cf2py  integer intent(hide),depend(xlon) :: nxlon=shape(xlon,0)
+Cf2py  intent(out) denp
+
+       common /folders/ dirdata1
+
+       dirdata1 = trim(dirdata)
+
+       call pim(uthr,idn,iyr,alt,xlat,xlon,fkp,F107,denp,nalt,first) 
+
+       return       
+
+      end
